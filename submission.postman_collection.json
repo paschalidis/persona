@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "a3fe92b9-6127-4bad-b16f-04ad53a720d3",
+		"name": "submission",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25643426"
+	},
+	"item": [
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Submission",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"John Doe\",\n      \"email\": \"john.doe@example.com\",\n      \"message\": \"This is a test message.\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/submission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"submission"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
