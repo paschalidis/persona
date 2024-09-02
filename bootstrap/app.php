@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //exclude csrf for the demo project
         $middleware->validateCsrfTokens(except: [
-            'persona'
+            'submission'
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

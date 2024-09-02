@@ -10,4 +10,4 @@ use Illuminate\Support\Facades\Route;
 //    return csrf_token();
 //});
 
-Route::post('/persona', [\App\Http\Controllers\PersonaController::class, 'createPersona']);
+Route::post('/submission', [\App\Http\Controllers\SubmissionController::class, 'create']);
