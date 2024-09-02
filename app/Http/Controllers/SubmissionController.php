@@ -6,6 +6,7 @@ use App\Jobs\ProcessSubmission;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class SubmissionController extends Controller
 {
@@ -27,7 +28,8 @@ class SubmissionController extends Controller
         try {
             ProcessSubmission::dispatch($submission->toArray());
         } catch (\Throwable $exception){
-            //todo log the $exception
+            //log the $exception
+            Log::error($exception->getMessage(), $exception->getTrace());
             return  response(['message' => 'submission failed'], 400);
         }
 

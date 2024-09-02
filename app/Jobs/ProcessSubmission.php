@@ -3,12 +3,14 @@
 namespace App\Jobs;
 
 use AllowDynamicProperties;
+use App\Events\SubmissionCreated;
 use App\Models\Submission;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class ProcessSubmission implements ShouldQueue
 {
@@ -41,5 +43,11 @@ class ProcessSubmission implements ShouldQueue
 
 
         $isSaved = $submission->save();
+
+        if($isSaved){
+            SubmissionCreated::dispatch($submission);
+        } else {
+            Log::error("Submission is not created", $submission->toArray());
+        }
     }
 }
